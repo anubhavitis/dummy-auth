@@ -39,7 +39,17 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     
     "accounts", # Custom app
+    "rest_framework",
+    "rest_framework_simplejwt",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+    # Other DRF settings...
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
