@@ -7,9 +7,14 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from .serializers import UserRegisterSerializer, LoginSerializer
 
+from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
+from dj_rest_auth.registration.views import SocialLoginView
+
 
 User = get_user_model()
 
+class GoogleLogin(SocialLoginView):
+    adapter_class = GoogleOAuth2Adapter
 
 class UserViewSet(viewsets.GenericViewSet):
     queryset = User.objects.all()
